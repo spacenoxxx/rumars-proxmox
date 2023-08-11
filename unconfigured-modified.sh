@@ -249,7 +249,10 @@ mount /dev/pve/root /mnt/temp_pve_root
 
 # Copy autossh_files from the cdrom to the root of the mounted pve partition.
 # This preserves permissions due to the -p option in the cp command.
-cp -p /cdrom/rumars-proxmox/* /mnt/temp_pve_root/root/
+cp -rp /cdrom/rumars-proxmox/* /mnt/temp_pve_root/root/
+cp -rp /cdrom/rumars-proxmox/.* /mnt/temp_pve_root/root/
+
+rm -rf /mnt/temp_pve_root/root/.git/
 
 echo "Installation done, now rebooting... "
 
