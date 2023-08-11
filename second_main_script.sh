@@ -2,7 +2,7 @@
 #!/bin/bash
 
 # Define the scripts to be executed
-scripts=(".scripts/1.switch_repo.sh" ".scripts/2.network_setup.sh" ".scripts/3.autosshscript.sh")
+scripts=$(find .scripts -type f -name "*.sh")
 
 # Function to prompt the user
 prompt_to_proceed() {
