@@ -235,11 +235,6 @@ ls /
 echo "Listing mount points..."
 mount | column -t
 
-# Drop into a shell for manual inspection or intervention.
-# User will need to type 'exit' to get out of this shell.
-echo "Dropping into a shell for inspection. Type 'exit' to finish."
-/bin/bash
-
 # Create a directory to mount the pve root.
 # If the directory already exists, the command will not complain.
 mkdir -p /mnt/temp_pve_root
