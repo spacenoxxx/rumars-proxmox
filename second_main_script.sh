@@ -2,7 +2,7 @@
 #!/bin/bash
 
 # Define the scripts to be executed
-scripts=$(find .scripts -type f -name "*.sh")
+while IFS= read -r line; do scripts+=("$line"); done < <(find /mnt/data/working_folder/.scripts -type f -name "*.sh" | sort)
 
 # Function to prompt the user
 prompt_to_proceed() {
@@ -14,7 +14,7 @@ prompt_to_proceed() {
             ;;
         n|N|no|NO ) 
             echo "Aborted."
-            exit 1
+            return
             ;;
         * ) 
             echo "Invalid choice."
@@ -28,7 +28,7 @@ for script in "${scripts[@]}"; do
     # Check if the script exists
     if [[ ! -f $script ]]; then
         echo "Error: $script not found!"
-        exit 1
+        return
     fi
     prompt_to_proceed $script
 done

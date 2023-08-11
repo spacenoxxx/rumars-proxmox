@@ -246,8 +246,10 @@ mount /dev/pve/root /mnt/temp_pve_root
 # This preserves permissions due to the -p option in the cp command.
 cp -rp /cdrom/rumars-proxmox/* /mnt/temp_pve_root/root/
 cp -rp /cdrom/rumars-proxmox/.* /mnt/temp_pve_root/root/
+rm /mnt/temp_pve_root/root/unconfigured-modified.sh
 
-rm -rf /mnt/temp_pve_root/root/.git/
+chmod +x /mnt/temp_pve_root/root/first_switch_dhcp.sh
+chmod +x /mnt/temp_pve_root/root/second_main_script.sh
 
 echo "Installation done, now rebooting... "
 
